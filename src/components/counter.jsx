@@ -3,12 +3,11 @@ import React, { Component } from "react";
 // since we will be making this a controlled state the state will no lnger be needed instead we will be getting this via props
 // then we transfer data to the associated components via events
 
-
 class Counter extends Component {
   /* state = {
     value: this.props.counter.value */
-    /* tags: ["tag1", "tag2", "tag3"] */
-    /* imageUrl: "https://picsum.photos/200" */
+  /* tags: ["tag1", "tag2", "tag3"] */
+  /* imageUrl: "https://picsum.photos/200" */
   /* }; */
 
   /*   styles = {
@@ -24,7 +23,7 @@ class Counter extends Component {
   //or we can just convert the handleIncrement function to arrow function
 
   //conditional rendering
- /*  renderTags() {
+  /*  renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags</p>;
 
     return (
@@ -37,16 +36,16 @@ class Counter extends Component {
     );
   } */
 
-
-  // we no longer needed this handleIncrement since we will be using the counters.jsx so we can have a single source of truth or a single state 
+  // we no longer needed this handleIncrement since we will be using the counters.jsx so we can have a single source of truth or a single state
   /* handleIncrement = product => {
     console.log(product); */
-    /* console.log("increment Clicked", this); */
+  /* console.log("increment Clicked", this); */
   /*   this.setState({ value: this.state.value + 1 });
     // we use setState whenever we update the state
   }; */
 
   render() {
+    console.log("Counter-rendered");
     return (
       //instead of <div> we can use <React.Fragment> so that it will not create another div in a dom
       <div>

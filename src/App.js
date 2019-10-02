@@ -25,6 +25,25 @@ class App extends Component {
     ]
   };
 
+  constructor(props) {
+    //note we cannot use a prop inside a constructor unless we set it inside a contructor as a parameter
+    //also we need to add a props property inside a super to access the parents properties
+    super(props);
+    console.log(
+      `App-Constructor` /* ,
+      this.props */
+    ); /* 
+    this.state = this.props.something; */
+    /* this.setState() */
+    //this method can only be used once a component has been rendered and place in a DOM
+  }
+
+  //this method will be called after the component is rendered into the DOM
+  //perfect place to use AJAX call to get data from the server
+  componentDidMount() {
+    console.log("App-Mounted");
+  }
+
   handleReset = () => {
     const counters = this.state.counters.map(c => {
       c.value = 0;
@@ -49,6 +68,8 @@ class App extends Component {
   };
 
   render() {
+    console.log("App-Rendered");
+    //when a component is rendered all of its childredn is rendered recursively
     return (
       <React.Fragment>
         <NavBar
