@@ -5,7 +5,14 @@ class Counters extends Component {
   render() {
     console.log("Counters-rendered");
 
-    const { onReset, counters, onDelete, onIncrement } = this.props;
+    const {
+      onReset,
+      counters,
+      onDelete,
+      onIncrement,
+      onDecrement,
+      disabled
+    } = this.props;
     //instead of using this.props.onReset or this.props.counters and so on. we have used the object destructuring so that we can just set this as onReset, onDelete ...
 
     return (
@@ -20,6 +27,7 @@ class Counters extends Component {
             key={counter.id}
             onDelete={onDelete}
             onIncrement={onIncrement}
+            onDecrement={onDecrement}
             /*  value={counter.value}
             id={counter.id} */
             //instead of above code in which individually adding properties you can just pass the object itself, it includes all we need in the counter

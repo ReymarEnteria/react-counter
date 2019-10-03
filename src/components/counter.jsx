@@ -48,27 +48,41 @@ class Counter extends Component {
     console.log("Counter-rendered");
     return (
       //instead of <div> we can use <React.Fragment> so that it will not create another div in a dom
-      <div>
-        {/* <img src={this.state.imageUrl} alt="" /> */}
-        {/* below style format is for the inline style */}
-        {/* we can use {this.styles} to reference to the style object */}
-        {/* {this.props.children} we can use this to render childrens */}
-        <span /* style={{ fontSize: 30 }} */ className={this.getBadgeClasses()}>
-          {this.formatCount()}
-        </span>
-        <button
-          onClick={() => this.props.onIncrement(this.props.counter)}
-          //note that we are not calling the method, we are just passing reference to it
-          className=" btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
-        <button
-          onClick={() => this.props.onDelete(this.props.counter.id)}
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button>
+      <div className="row">
+        <div className="col-1">
+          {/* <img src={this.state.imageUrl} alt="" /> */}
+          {/* below style format is for the inline style */}
+          {/* we can use {this.styles} to reference to the style object */}
+          {/* {this.props.children} we can use this to render childrens */}
+          <span
+            /* style={{ fontSize: 30 }} */ className={this.getBadgeClasses()}
+          >
+            {this.formatCount()}
+          </span>
+        </div>
+        <div className="col">
+          <button
+            onClick={() => this.props.onIncrement(this.props.counter)}
+            //note that we are not calling the method, we are just passing reference to it
+            className=" btn btn-secondary btn-sm"
+          >
+            +
+          </button>
+          <button
+            onClick={() => this.props.onDecrement(this.props.counter)}
+            //note that we are not calling the method, we are just passing reference to it
+            className=" btn btn-secondary btn-sm m-2"
+            disabled={this.props.counter.value === 0 ? "disabled" : ""}
+          >
+            -
+          </button>
+          <button
+            onClick={() => this.props.onDelete(this.props.counter.id)}
+            className="btn btn-danger btn-sm"
+          >
+            delete
+          </button>
+        </div>
         {/* <div>
           {this.state.tags.length === 0 && "Please create a new tag"}
           {this.renderTags()}

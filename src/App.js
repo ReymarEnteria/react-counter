@@ -66,6 +66,14 @@ class App extends Component {
     counters[index].value++;
     this.setState({ counters });
   };
+  handleDecrement = counter => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    //we never update directly the state instead we clone it then set the state
+    counters[index].value--;
+    this.setState({ counters });
+  };
 
   render() {
     console.log("App-Rendered");
@@ -79,6 +87,7 @@ class App extends Component {
           <Counters
             onReset={this.handleReset}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
             onDelete={this.handleDelete}
             counters={this.state.counters}
           />
